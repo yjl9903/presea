@@ -1,5 +1,5 @@
 {
-  "name": "test-sea",
+  "name": "unbuild-sea",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,13 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "XLor",
   "license": "MIT",
   "volta": {
     "node": "20.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "postject": "1.0.0-alpha.5"
-  },
-  "packageManager": "pnpm@8.2.0"
+  }
 }
