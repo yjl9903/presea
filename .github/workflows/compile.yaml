@@ -55,5 +55,5 @@ jobs:
       
       - uses: actions/upload-artifact@v3
         with:
-          name: output
+          name: ${{ matrix.bin }}-${{ matrix.target }}
           path: ./${{ matrix.bin }}
