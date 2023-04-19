@@ -20,26 +20,33 @@ jobs:
         include:
           - target: linux
             os: ubuntu-latest
+          - target: windows
+            os: windows-latest
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
 
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 20.x
-          cache: pnpm
 
       - name: Install
-        run: pnpm install
+        run: npm install
+      
+      - name: Copy on windows
+        if: ${{ matrix.target == 'windows' }}
+        run: |
+          cp (Get-Command node).source hello
+      
+      - name: Copy on linux
+        if: ${{ matrix.target != 'windows' }}
+        run: |
+          cp $(command -v node) hello 
 
       - name: Build
         run: |
-          node --experimental-sea-config sea-config.json 
-          cp $(command -v node) hello
+          node --experimental-sea-config sea-config.json
           npx postject hello NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 
           ./hello world
       
