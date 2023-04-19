@@ -20,8 +20,10 @@ jobs:
         include:
           - target: linux
             os: ubuntu-latest
+            bin: hello
           - target: windows
             os: windows-latest
+            bin: hello
 
     steps:
       - uses: actions/checkout@v3
@@ -38,20 +40,20 @@ jobs:
       - name: Copy on windows
         if: ${{ matrix.target == 'windows' }}
         run: |
-          cp (Get-Command node).source hello
+          cp (Get-Command node).source ${{ matrix.bin }}
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
         run: |
-          cp $(command -v node) hello 
+          cp $(command -v node) ${{ matrix.bin }} 
 
       - name: Build
         run: |
           node --experimental-sea-config sea-config.json
-          npx postject hello NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 
-          ./hello world
+          npx postject ${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 
+          ./${{ matrix.bin }} world
       
       - uses: actions/upload-artifact@v3
         with:
           name: output
-          path: ./hello
+          path: ./${{ matrix.bin }}
