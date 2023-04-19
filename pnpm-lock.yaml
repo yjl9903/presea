@@ -1,0 +1,21 @@
+lockfileVersion: '6.0'
+
+devDependencies:
+  postject:
+    specifier: 1.0.0-alpha.5
+    version: 1.0.0-alpha.5
+
+packages:
+
+  /commander@9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
+    engines: {node: ^12.20.0 || >=14}
+    dev: true
+
+  /postject@1.0.0-alpha.5:
+    resolution: {integrity: sha512-XDgGD+iKg3jSv+is2En18/lFkcu3sx6KhxD3DO25QT3Nca0QCrxVQj6uMTmMgVcaO7N6n8ne2+a04yX0N9RwgQ==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      commander: 9.5.0
+    dev: true
