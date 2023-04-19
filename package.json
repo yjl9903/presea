@@ -11,8 +11,5 @@
   "license": "MIT",
   "volta": {
     "node": "20.0.0"
-  },
-  "dependencies": {
-    "postject": "1.0.0-alpha.5"
   }
 }
