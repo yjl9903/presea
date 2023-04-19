@@ -14,5 +14,6 @@
   },
   "devDependencies": {
     "postject": "1.0.0-alpha.5"
-  }
+  },
+  "packageManager": "pnpm@8.2.0"
 }
