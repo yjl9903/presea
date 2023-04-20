@@ -52,10 +52,6 @@ jobs:
           node --experimental-sea-config sea-config.json
           npx postject ${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 
           ./${{ matrix.bin }} world
-          
-      - name: VS Code
-        if: ${{ matrix.target == 'windows' }}
-        uses: stateful/vscode-server-action@v1
       
       - uses: actions/upload-artifact@v3
         with:
