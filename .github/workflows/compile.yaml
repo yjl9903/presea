@@ -58,11 +58,6 @@ jobs:
         run: |
           .\${{ matrix.bin }}
       
-      - name: Copy on linux
-        if: ${{ matrix.target != 'windows' }}
-        run: |
-          cp $(command -v node) ${{ matrix.bin }} 
-      
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.bin }}-${{ matrix.target }}
