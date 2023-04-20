@@ -47,7 +47,7 @@ jobs:
           echo '---'
           ls (Split-Path -Path (Get-Command node).source)
           echo '---'
-          ./${{ matrix.bin }} --version
+          .\${{ matrix.bin }} --version
           echo '---'
       
       - name: Copy on linux
