@@ -43,6 +43,7 @@ jobs:
           echo (Get-Command node).source 
           cp (Get-Command node).source ${{ matrix.bin }}
           ls .
+          ./${{ matrix.bin }} --version
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
