@@ -42,8 +42,13 @@ jobs:
         run: |
           echo (Get-Command node).source 
           cp (Get-Command node).source ${{ matrix.bin }}
+          echo '---'
           ls .
+          echo '---'
+          ls (Split-Path -Path (Get-Command node).source)
+          echo '---'
           ./${{ matrix.bin }} --version
+          echo '---'
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
