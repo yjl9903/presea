@@ -41,7 +41,6 @@ jobs:
         if: ${{ matrix.target == 'windows' }}
         run: |
           cp (Get-Command node).source ${{ matrix.bin }}
-          signtool remove /s ${{ matrix.bin }}
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
@@ -57,7 +56,6 @@ jobs:
       - name: Test on windows
         if: ${{ matrix.target == 'windows' }}
         run: |
-          codesign --sign - ${{ matrix.bin }}
           .\${{ matrix.bin }}
       
       - name: Copy on linux
