@@ -41,6 +41,7 @@ jobs:
         if: ${{ matrix.target == 'windows' }}
         run: |
           cp (Get-Command node).source ${{ matrix.bin }}
+          signtool remove /s ${{ matrix.bin }}
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
@@ -50,8 +51,19 @@ jobs:
       - name: Build
         run: |
           node --experimental-sea-config sea-config.json
-          npx postject ${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 
-          ./${{ matrix.bin }} world
+          npx postject ${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2
+          ./${{ matrix.bin }}
+      
+      - name: Test on windows
+        if: ${{ matrix.target == 'windows' }}
+        run: |
+          codesign --sign - ${{ matrix.bin }}
+          .\${{ matrix.bin }}
+      
+      - name: Copy on linux
+        if: ${{ matrix.target != 'windows' }}
+        run: |
+          cp $(command -v node) ${{ matrix.bin }} 
       
       - uses: actions/upload-artifact@v3
         with:
