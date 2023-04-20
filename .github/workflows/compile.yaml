@@ -54,6 +54,7 @@ jobs:
         if: ${{ matrix.target != 'windows' }}
         run: |
           cp $(command -v node) ${{ matrix.bin }} 
+          ./${{ matrix.bin }} --version
 
       - name: Build
         run: |
