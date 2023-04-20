@@ -40,7 +40,9 @@ jobs:
       - name: Copy on windows
         if: ${{ matrix.target == 'windows' }}
         run: |
+          echo (Get-Command node).source 
           cp (Get-Command node).source ${{ matrix.bin }}
+          ls .
       
       - name: Copy on linux
         if: ${{ matrix.target != 'windows' }}
