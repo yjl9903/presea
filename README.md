@@ -1,6 +1,6 @@
 # unbuild-sea
 
-[![CI](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml/badge.svg)](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml)
+[![version](https://img.shields.io/npm/v/unbuild-sea?label=unbuild-sea)](https://www.npmjs.com/package/unbuild-sea) [![CI](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml/badge.svg)](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml)
 
 An [unbuild](https://github.com/unjs/unbuild) preset for bundling Node single executable applications.
 
