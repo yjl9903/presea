@@ -1,0 +1,10 @@
+{
+  "name": "hello",
+  "private": true,
+  "bin": {
+    "hello": "./dist/hello.mjs"
+  },
+  "scripts": {
+    "build": "unbuild"
+  }
+}

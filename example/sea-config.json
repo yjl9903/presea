@@ -1,4 +1,4 @@
 {
-  "main": "hello.js",
+  "main": "src/hello.js",
   "output": "sea-prep.blob"
 }
