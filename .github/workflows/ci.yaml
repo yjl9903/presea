@@ -28,3 +28,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Test
+        run: |
+          cd example
+          npx unbuild
+          ./dist/hello world

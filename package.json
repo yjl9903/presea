@@ -37,6 +37,11 @@
     "test:ci": "vitest --run",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@breadc/color": "^0.9.3",
+    "execa": "^7.1.1",
+    "postject": "1.0.0-alpha.5"
+  },
   "devDependencies": {
     "@types/node": "^18.15.11",
     "bumpp": "latest",
