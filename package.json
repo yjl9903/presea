@@ -35,7 +35,8 @@
     "format": "prettier --write src/**/*.ts test/**/*.ts",
     "test": "vitest",
     "test:ci": "vitest --run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp package.json --commit --push --tag && pnpm publish"
   },
   "dependencies": {
     "@breadc/color": "^0.9.3",
