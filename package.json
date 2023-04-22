@@ -1,14 +1,55 @@
 {
   "name": "unbuild-sea",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.0",
+  "description": "An unbuild preset for bundling Node single executable applications",
+  "keywords": [
+    "unbuild",
+    "sea"
+  ],
+  "homepage": "https://github.com/yjl9903/unbuild-sea#readme",
+  "bugs": {
+    "url": "https://github.com/yjl9903/unbuild-sea/issues"
   },
-  "keywords": [],
-  "author": "XLor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjl9903/unbuild-sea.git"
+  },
   "license": "MIT",
+  "author": "XLor",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "format": "prettier --write src/**/*.ts test/**/*.ts",
+    "test": "vitest",
+    "test:ci": "vitest --run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "bumpp": "latest",
+    "turbo": "^1.9.3",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1",
+    "vite": "^4.3.1",
+    "vitest": "^0.30.1"
+  },
+  "packageManager": "pnpm@8.3.1",
+  "engines": {
+    "node": ">=v20.0.0"
+  },
   "volta": {
     "node": "20.0.0"
   }
