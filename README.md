@@ -4,6 +4,8 @@
 
 An [unbuild](https://github.com/unjs/unbuild) preset for bundling Node single executable applications.
 
+From [Node.js 20](https://nodejs.org/en/blog/announcements/v20-release-announce), it supports Single Executable Applications experimentally. This package integrates the binary bundle steps with [unbuild](https://github.com/unjs/unbuild) following [Single executable applications | Node.js v20.0.0 Document](https://nodejs.org/api/single-executable-applications.html).
+
 ## Installation
 
 ```bash
