@@ -1,5 +1,5 @@
-import { definePreset } from 'unbuild';
+import type { BuildPreset } from 'unbuild';
 
-export function Sea() {
-  return definePreset({});
+export function Sea(): BuildPreset {
+  return {};
 }
