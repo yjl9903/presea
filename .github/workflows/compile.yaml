@@ -54,9 +54,10 @@ jobs:
 
       - name: Build
         run: |
-          node --experimental-sea-config example/sea-config.json
-          npx postject ${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2
-          ./${{ matrix.bin }} world
+          cd example
+          node --experimental-sea-config sea-config.json
+          npx postject ../${{ matrix.bin }} NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2
+          ../${{ matrix.bin }} world
 
       - uses: actions/upload-artifact@v3
         with:
