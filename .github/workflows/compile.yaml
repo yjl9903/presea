@@ -23,7 +23,7 @@ jobs:
             bin: hello
           - target: windows
             os: windows-latest
-            bin: hello
+            bin: hello.exe
 
     steps:
       - uses: actions/checkout@v3
