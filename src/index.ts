@@ -3,10 +3,13 @@ import type { BuildContext, BuildPreset } from 'unbuild';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { lightRed } from '@breadc/color';
+
 import type { SeaOptions } from './types';
 
 import { bundle } from './bundle';
 import { platform } from 'node:os';
+import { execa } from 'execa';
 
 export type { SeaOptions };
 
@@ -15,7 +18,9 @@ export function Sea(_options: Partial<SeaOptions> = {}): BuildPreset {
     hooks: {
       async 'build:done'(ctx) {
         const options = await resolveOptions(ctx, _options);
-        await bundle(options);
+        if (options) {
+          await bundle(options);
+        }
       }
     }
   };
@@ -24,13 +29,23 @@ export function Sea(_options: Partial<SeaOptions> = {}): BuildPreset {
 async function resolveOptions(
   ctx: BuildContext,
   options: Partial<SeaOptions>
-): Promise<SeaOptions> {
+): Promise<SeaOptions | undefined> {
   const inferred = inferBinary();
+  const node = options.node ?? process.argv[0];
+
+  const version = (await execa(node, ['--version'])).stdout;
+  const match = /^v(\d+)/.exec(version);
+  if (!match || +match[1] < 20) {
+    console.log(
+      lightRed(`× Your node version ${version} may not support single executable applications`)
+    );
+    return undefined;
+  }
 
   return {
     binary: options.binary ?? inferred?.name ?? 'cli',
     main: options.main ?? inferred?.main ?? ctx.buildEntries[0].path,
-    node: options.node ?? process.argv[0],
+    node,
     sign: false,
     outDir: options.outDir ?? ctx.options.outDir,
     postject: {
