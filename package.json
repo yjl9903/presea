@@ -37,7 +37,7 @@
     "test": "vitest",
     "test:ci": "vitest --run",
     "typecheck": "tsc --noEmit",
-    "preversion": "pnpm test:ci",
+    "preversion": "pnpm build",
     "postversion": "pnpm build"
   },
   "dependencies": {
