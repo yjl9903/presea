@@ -48,6 +48,14 @@ $ ./dist/hello world
 Hello, world!
 ```
 
+## Development
+
++ Clone this repository
++ Use `pnpm` as the package manager (`npm i -g pnpm`)
++ Install dependencies using `pnpm install`
++ Build the module using `pnpm build`
++ Test the bundle using `cd example && unbuild`
+
 ## License
 
 MIT License © 2023 [XLor](https://github.com/yjl9903)
