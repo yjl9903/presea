@@ -1,6 +1,6 @@
 {
   "name": "unbuild-sea",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An unbuild preset for bundling Node single executable applications",
   "keywords": [
     "unbuild",
