@@ -33,10 +33,12 @@
   "scripts": {
     "build": "unbuild",
     "format": "prettier --write src/**/*.ts test/**/*.ts",
+    "release": "bumpp package.json --commit --push --tag && pnpm publish",
     "test": "vitest",
     "test:ci": "vitest --run",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp package.json --commit --push --tag && pnpm publish"
+    "preversion": "pnpm test:ci",
+    "postversion": "pnpm build"
   },
   "dependencies": {
     "@breadc/color": "^0.9.3",
