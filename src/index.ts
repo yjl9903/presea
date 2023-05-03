@@ -30,6 +30,11 @@ async function resolveOptions(
   ctx: BuildContext,
   options: Partial<SeaOptions>
 ): Promise<SeaOptions | undefined> {
+  // Disable bundle sea when stub
+  if (ctx.options.stub) {
+    return undefined;
+  }
+
   const inferred = inferBinary();
   const node = options.node ?? process.argv[0];
 
