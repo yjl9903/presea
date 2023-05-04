@@ -48,6 +48,14 @@ $ ./dist/hello world
 Hello, world!
 ```
 
+### Programmatic Usage
+
+```ts
+import { bundle } from 'unbuild-sea'
+
+await bundle('path/to/package')
+```
+
 ### GitHub Actions
 
 Here is an example GitHub Actions config to bundle single executable applications.
