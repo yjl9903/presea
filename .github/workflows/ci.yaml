@@ -20,8 +20,14 @@ jobs:
         include:
           - target: linux
             os: ubuntu-latest
+            binary: ./dist/hello
           - target: windows
             os: windows-latest
+            binary: .\dist\hello.exe
+
+    defaults:
+      run:
+        working-directory: ./example
 
     steps:
       - uses: actions/checkout@v3
@@ -41,8 +47,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Test
-        run: |
-          cd example
-          npx unbuild
-          ./dist/hello world
+      - name: Test binary
+        run: ${{ matrix.binary }} world
