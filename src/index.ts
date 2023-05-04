@@ -16,7 +16,33 @@ export type { SeaOptions };
 export function Sea(_options: Partial<SeaOptions> = {}): BuildPreset {
   return {
     hooks: {
+      'build:before'(ctx) {
+        if (ctx.options.stub) {
+          return;
+        }
+
+        // Setup config
+        ctx.options.rollup.inlineDependencies = true;
+        ctx.options.rollup.emitCJS = true;
+        if (!ctx.options.rollup.esbuild) {
+          ctx.options.rollup.esbuild = {
+            minify: true
+          };
+        } else {
+          ctx.options.rollup.esbuild.minify = true;
+        }
+
+        ctx.options.externals = ctx.options.externals.filter(
+          (dep) => !ctx.options.dependencies.some((d) => d === dep)
+        );
+        ctx.options.devDependencies.push(...ctx.options.dependencies);
+        ctx.options.dependencies = [];
+      },
       async 'build:done'(ctx) {
+        if (ctx.options.stub) {
+          return;
+        }
+
         const options = await resolveOptions(ctx, _options);
         if (options) {
           await bundle(options);
@@ -30,11 +56,6 @@ async function resolveOptions(
   ctx: BuildContext,
   options: Partial<SeaOptions>
 ): Promise<SeaOptions | undefined> {
-  // Disable bundle sea when stub
-  if (ctx.options.stub) {
-    return undefined;
-  }
-
   const inferred = inferBinary();
   const node = options.node ?? process.argv[0];
 

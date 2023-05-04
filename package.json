@@ -32,6 +32,7 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "dev": "unbuild --stub",
     "format": "prettier --write src/**/*.ts test/**/*.ts",
     "release": "bumpp package.json --commit --push --tag && pnpm publish",
     "test": "vitest",

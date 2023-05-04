@@ -53,8 +53,8 @@ Hello, world!
 + Clone this repository
 + Use `pnpm` as the package manager (`npm i -g pnpm`)
 + Install dependencies using `pnpm install`
-+ Build the module using `pnpm build`
-+ Test the bundle using `cd example && unbuild`
++ Build the module using `pnpm build` or stub the module using `pnpm dev`
++ Test the bundle using `cd example && pnpm i && pnpm build`
 
 ## License
 

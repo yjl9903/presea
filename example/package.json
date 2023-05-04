@@ -7,10 +7,8 @@
   "scripts": {
     "build": "unbuild"
   },
-  "dependencies": {
-    "@breadc/color": "^0.9.3"
-  },
   "devDependencies": {
+    "@breadc/color": "^0.9.3",
     "unbuild": "^1.2.1"
   },
   "volta": {

@@ -1,11 +1,9 @@
 lockfileVersion: '6.0'
 
-dependencies:
+devDependencies:
   '@breadc/color':
     specifier: ^0.9.3
     version: 0.9.3
-
-devDependencies:
   unbuild:
     specifier: ^1.2.1
     version: 1.2.1
@@ -222,7 +220,7 @@ packages:
 
   /@breadc/color@0.9.3:
     resolution: {integrity: sha512-kBrkvSm1CwrQBu4OtVPvl9qj02HRnghNiZpkr5qg0oFXtxGSf5kSPqQ5YKCP0aI+Ub1t6nWpDMtSw2mKTHqTKg==}
-    dev: false
+    dev: true
 
   /@esbuild/android-arm64@0.17.18:
     resolution: {integrity: sha512-/iq0aK0eeHgSC3z55ucMAHO05OIqmQehiGay8eP5l/5l+iEr4EIbh4/MI8xD9qRFjqzgkc0JkX0LculNC9mXBw==}
