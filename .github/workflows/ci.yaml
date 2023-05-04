@@ -25,10 +25,6 @@ jobs:
             os: windows-latest
             binary: .\dist\hello.exe
 
-    defaults:
-      run:
-        working-directory: ./example
-
     steps:
       - uses: actions/checkout@v3
 
@@ -42,10 +38,15 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: pnpm install
+        run: |
+          pnpm install
+          cd example
+          pnpm install
 
       - name: Build
+        working-directory: ./example
         run: pnpm build
 
       - name: Test binary
+        working-directory: ./example
         run: ${{ matrix.binary }} world
