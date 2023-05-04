@@ -32,8 +32,10 @@ export function Sea(_options: Partial<SeaOptions> = {}): BuildPreset {
           ctx.options.rollup.esbuild.minify = true;
         }
 
+        console.log(ctx.options.externals.join('\n'));
+        const deps = new Set([...ctx.options.dependencies, ...ctx.options.devDependencies]);
         ctx.options.externals = ctx.options.externals.filter(
-          (dep) => !ctx.options.dependencies.some((d) => d === dep)
+          (dep) => typeof dep !== 'string' || !deps.has(dep)
         );
         ctx.options.devDependencies.push(...ctx.options.dependencies);
         ctx.options.dependencies = [];
