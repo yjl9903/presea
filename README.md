@@ -48,6 +48,58 @@ $ ./dist/hello world
 Hello, world!
 ```
 
+### GitHub Actions
+
+Here is an example GitHub Actions config to bundle single executable applications.
+
+You should replace `<bin>` to your own binary name which is the same as your `package.json` or your build config.
+
+```yaml
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  bundle:
+    name: Bundle on ${{ matrix.target }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: linux
+            os: ubuntu-latest
+            binary: ./dist/<bin>
+          - target: windows
+            os: windows-latest
+            binary: .\dist\<bin>.exe
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build  # now binary is located at matrix.binary
+
+      # Upload to release and so on...
+```
+
 ## Development
 
 + Clone this repository
