@@ -2,9 +2,18 @@
   "name": "hello",
   "private": true,
   "bin": {
-    "hello": "./dist/hello.mjs"
+    "hello": "./dist/hello.cjs"
   },
   "scripts": {
     "build": "unbuild"
+  },
+  "dependencies": {
+    "@breadc/color": "^0.9.3"
+  },
+  "devDependencies": {
+    "unbuild": "^1.2.1"
+  },
+  "volta": {
+    "node": "20.1.0"
   }
 }

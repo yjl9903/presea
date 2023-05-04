@@ -3,16 +3,11 @@ import { defineBuildConfig } from 'unbuild';
 import { Sea } from '../src/index';
 
 export default defineBuildConfig({
-  entries: [
-    {
-      builder: 'mkdist',
-      input: './src',
-      outDir: './dist/'
-    }
-  ],
+  entries: ['./src/hello'],
   declaration: true,
   clean: true,
   rollup: {
+    inlineDependencies: true,
     emitCJS: true
   },
   preset: Sea()
