@@ -47,7 +47,7 @@
     "postject": "1.0.0-alpha.5"
   },
   "devDependencies": {
-    "@types/node": "^18.16.7",
+    "@types/node": "^18.16.8",
     "bumpp": "latest",
     "turbo": "^1.9.3",
     "typescript": "^5.0.4",
