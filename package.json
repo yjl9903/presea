@@ -44,7 +44,7 @@
   "dependencies": {
     "@breadc/color": "^0.9.5",
     "execa": "^7.1.1",
-    "postject": "1.0.0-alpha.5"
+    "postject": "1.0.0-alpha.6"
   },
   "devDependencies": {
     "@types/node": "^18.16.13",
