@@ -29,6 +29,13 @@ export interface SeaOptions {
   sign: boolean;
 
   /**
+   * Enable sea warning
+   *
+   * @default false
+   */
+  warning: boolean;
+
+  /**
    * Postject configuration.
    */
   postject: {

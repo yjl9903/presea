@@ -5,9 +5,9 @@ import path from 'node:path';
 import { platform } from 'node:os';
 
 import { execa } from 'execa';
-import { cyan, lightGreen } from '@breadc/color';
 // @ts-expect-error
 import { inject } from 'postject';
+import { cyan, lightGreen } from '@breadc/color';
 
 export async function bundle(options: SeaOptions) {
   // Split logs
@@ -63,7 +63,8 @@ function makeSeaConfig(options: SeaOptions) {
   const file = path.join(options.outDir, 'sea-config.json');
   const config = {
     main: options.main,
-    output: path.join(options.outDir, 'sea-prep.blob')
+    output: path.join(options.outDir, 'sea-prep.blob'),
+    disableExperimentalSEAWarning: !options.warning
   };
   fs.writeFileSync(file, JSON.stringify(config, null, 2), 'utf-8');
   return {

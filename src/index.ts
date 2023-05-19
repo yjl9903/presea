@@ -75,6 +75,7 @@ async function resolveOptions(
     node,
     sign: false,
     outDir: options.outDir ?? ctx.options.outDir,
+    warning: options.warning === true ? true : false,
     postject: {
       machoSegmentName:
         options.postject?.machoSegmentName ?? platform() === 'darwin' ? 'NODE_SEA' : undefined,
@@ -109,6 +110,7 @@ export async function bundle(rootDir: string, options: Partial<Omit<SeaOptions, 
     node,
     sign: options.sign ?? false,
     outDir: options.outDir ?? path.join(rootDir, './dist'),
+    warning: options.warning === true ? true : false,
     postject: {
       machoSegmentName: platform() === 'darwin' ? 'NODE_SEA' : undefined,
       overwrite: true,
