@@ -58,7 +58,7 @@
   "peerDependencies": {
     "unbuild": "^1.2.1"
   },
-  "packageManager": "pnpm@8.6.2",
+  "packageManager": "pnpm@8.6.3",
   "engines": {
     "node": ">=v20.0.0"
   },
