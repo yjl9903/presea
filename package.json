@@ -42,7 +42,7 @@
     "postversion": "pnpm build"
   },
   "dependencies": {
-    "@breadc/color": "^0.9.5",
+    "@breadc/color": "^0.9.6",
     "execa": "^7.1.1",
     "postject": "1.0.0-alpha.6"
   },

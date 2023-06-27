@@ -8,7 +8,7 @@
     "build": "unbuild"
   },
   "devDependencies": {
-    "@breadc/color": "^0.9.5",
+    "@breadc/color": "^0.9.6",
     "unbuild": "^1.2.1"
   },
   "volta": {
