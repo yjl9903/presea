@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@breadc/color':
-    specifier: ^0.9.5
-    version: 0.9.5
+    specifier: ^0.9.6
+    version: 0.9.6
   unbuild:
     specifier: ^1.2.1
     version: 1.2.1
@@ -222,8 +222,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@breadc/color@0.9.5:
-    resolution: {integrity: sha512-dcd4Nsw7E6A2dFiji3W/C+jlqaXq8W4LydGnqH9blsxUlUmFwGd1dyt9B1E/8+PEkL3L7M96YM/M9AB8fAgHcA==}
+  /@breadc/color@0.9.6:
+    resolution: {integrity: sha512-a2/ANjnrg7zGw+RF4GLQMCw/umI+T8us79Qha/l9NdEUzqEEk+STZHCA9fYjLsnBh7jfDGaW72a7HkmSIr3h4Q==}
     dev: true
 
   /@esbuild/android-arm64@0.17.19:
