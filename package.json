@@ -1,6 +1,6 @@
 {
   "name": "presea",
-  "version": "0.0.10-beta.0",
+  "version": "0.0.10",
   "description": "An unbuild preset for bundling Node single executable applications",
   "keywords": [
     "unbuild",
