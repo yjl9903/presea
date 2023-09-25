@@ -9,7 +9,7 @@ From [Node.js 20](https://nodejs.org/en/blog/announcements/v20-release-announce)
 ## Installation
 
 ```bash
-npm i -D unbuild presea
+npm i -D presea
 ```
 
 ## Usage
