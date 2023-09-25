@@ -1,5 +1,5 @@
 {
-  "name": "unbuild-sea",
+  "name": "presea",
   "version": "0.0.9",
   "description": "An unbuild preset for bundling Node single executable applications",
   "keywords": [
@@ -43,26 +43,26 @@
   },
   "dependencies": {
     "@breadc/color": "^0.9.6",
-    "execa": "^7.1.1",
+    "execa": "^8.0.1",
     "postject": "1.0.0-alpha.6"
   },
   "devDependencies": {
-    "@types/node": "^18.16.19",
+    "@types/node": "^20.6.5",
     "bumpp": "latest",
-    "turbo": "^1.10.7",
-    "typescript": "^5.1.6",
-    "unbuild": "^1.2.1",
-    "vite": "^4.4.2",
-    "vitest": "^0.33.0"
+    "turbo": "^1.10.14",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.5"
   },
-  "peerDependencies": {
-    "unbuild": "^1.2.1"
+  "optionalDependencies": {
+    "unbuild": "^1.2.1 || ^2.0.0"
   },
-  "packageManager": "pnpm@8.6.7",
+  "packageManager": "pnpm@8.7.6",
   "engines": {
-    "node": ">=v20.0.0"
+    "node": ">=v20.7.0"
   },
   "volta": {
-    "node": "20.0.0"
+    "node": "20.7.0"
   }
 }
