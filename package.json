@@ -62,7 +62,7 @@
     "vitest": "^0.34.5"
   },
   "optionalDependencies": {
-    "unbuild": "^1.2.1 || ^2.0.0"
+    "unbuild": "^2.0.0"
   },
   "packageManager": "pnpm@8.7.6",
   "engines": {
