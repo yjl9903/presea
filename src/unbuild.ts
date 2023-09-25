@@ -72,6 +72,8 @@ async function resolveOptions(
     sign: false,
     outDir: options.outDir ?? ctx.options.outDir,
     warning: options.warning === true ? true : false,
+    useSnapshot: options.useSnapshot === true ? true : false,
+    useCodeCache: options.useCodeCache === true ? true : false,
     postject: {
       machoSegmentName:
         options.postject?.machoSegmentName ?? platform() === 'darwin' ? 'NODE_SEA' : undefined,
