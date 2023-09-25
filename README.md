@@ -1,6 +1,6 @@
-# unbuild-sea
+# presea
 
-[![version](https://img.shields.io/npm/v/unbuild-sea?label=unbuild-sea)](https://www.npmjs.com/package/unbuild-sea) [![CI](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml/badge.svg)](https://github.com/yjl9903/unbuild-sea/actions/workflows/ci.yaml)
+[![version](https://img.shields.io/npm/v/presea?label=presea)](https://www.npmjs.com/package/presea) [![CI](https://github.com/yjl9903/presea/actions/workflows/ci.yaml/badge.svg)](https://github.com/yjl9903/presea/actions/workflows/ci.yaml)
 
 An [unbuild](https://github.com/unjs/unbuild) preset for bundling Node single executable applications.
 
@@ -9,7 +9,7 @@ From [Node.js 20](https://nodejs.org/en/blog/announcements/v20-release-announce)
 ## Installation
 
 ```bash
-npm i -D unbuild unbuild-sea
+npm i -D unbuild presea
 ```
 
 ## Usage
@@ -24,14 +24,14 @@ You should provide field `bin` in your `package.json` like the following config.
 }
 ```
 
-Import unbuild-sea preset in your `build.config.ts`.
+Import presea preset in your `build.config.ts`.
 
 ```ts
 // build.config.ts
 
 import { defineBuildConfig } from 'unbuild';
 
-import { Sea } from 'unbuild-sea';
+import { Sea } from 'presea';
 
 export default defineBuildConfig({
   preset: Sea(),
@@ -51,7 +51,7 @@ Hello, world!
 ### Programmatic Usage
 
 ```ts
-import { bundle } from 'unbuild-sea'
+import { bundle } from 'presea'
 
 await bundle('path/to/package')
 ```

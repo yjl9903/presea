@@ -4,15 +4,16 @@
   "description": "An unbuild preset for bundling Node single executable applications",
   "keywords": [
     "unbuild",
+    "node",
     "sea"
   ],
-  "homepage": "https://github.com/yjl9903/unbuild-sea#readme",
+  "homepage": "https://github.com/yjl9903/presea#readme",
   "bugs": {
-    "url": "https://github.com/yjl9903/unbuild-sea/issues"
+    "url": "https://github.com/yjl9903/presea/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yjl9903/unbuild-sea.git"
+    "url": "git+https://github.com/yjl9903/presea.git"
   },
   "license": "MIT",
   "author": "XLor",
