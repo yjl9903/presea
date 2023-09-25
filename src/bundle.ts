@@ -9,6 +9,30 @@ import { execa } from 'execa';
 import { inject } from 'postject';
 import { cyan, lightGreen } from '@breadc/color';
 
+export function inferBinary(root: string) {
+  try {
+    const p = path.join(root, 'package.json');
+    const pkg = JSON.parse(fs.readFileSync(p, 'utf-8'));
+    if (pkg.bin) {
+      const [bin] = Object.entries(pkg.bin);
+      const name = bin[0];
+      const main = bin[1];
+      if (name && main && typeof name === 'string' && typeof main === 'string') {
+        const mainPath = path.join(root, main);
+        if (fs.existsSync(mainPath)) {
+          return {
+            name,
+            main: mainPath
+          };
+        }
+      }
+    }
+    return undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 export async function bundle(options: SeaOptions) {
   // Split logs
   console.log();

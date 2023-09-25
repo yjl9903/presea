@@ -31,7 +31,7 @@ Import presea preset in your `build.config.ts`.
 
 import { defineBuildConfig } from 'unbuild';
 
-import { Sea } from 'presea';
+import { Sea } from 'presea/unbuild';
 
 export default defineBuildConfig({
   preset: Sea(),

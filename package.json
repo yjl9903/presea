@@ -23,6 +23,11 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
+    },
+    "./unbuild": {
+      "require": "./dist/unbuild.cjs",
+      "import": "./dist/unbuild.mjs",
+      "types": "./dist/unbuild.d.ts"
     }
   },
   "main": "dist/index.cjs",
