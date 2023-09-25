@@ -35,6 +35,8 @@ export async function bundle(rootDir: string, options: Partial<Omit<SeaOptions, 
     sign: options.sign ?? false,
     outDir: options.outDir ?? path.join(rootDir, './dist'),
     warning: options.warning === true ? true : false,
+    useSnapshot: options.useSnapshot === true ? true : false,
+    useCodeCache: options.useCodeCache === true ? true : false,
     postject: {
       machoSegmentName: platform() === 'darwin' ? 'NODE_SEA' : undefined,
       overwrite: true,

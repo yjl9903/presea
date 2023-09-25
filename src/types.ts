@@ -31,9 +31,25 @@ export interface SeaOptions {
   /**
    * Enable sea warning
    *
+   * @link
+   *
    * @default false
    */
   warning: boolean;
+
+  /**
+   * @see https://nodejs.org/dist/latest-v20.x/docs/api/single-executable-applications.html#startup-snapshot-support
+   *
+   * @default false
+   */
+  useSnapshot: boolean;
+
+  /**
+   * @see https://nodejs.org/dist/latest-v20.x/docs/api/single-executable-applications.html#v8-code-cache-support
+   *
+   * @default false
+   */
+  useCodeCache: boolean;
 
   /**
    * Postject configuration.

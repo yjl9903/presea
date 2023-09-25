@@ -88,9 +88,13 @@ function makeSeaConfig(options: SeaOptions) {
   const config = {
     main: options.main,
     output: path.join(options.outDir, 'sea-prep.blob'),
-    disableExperimentalSEAWarning: !options.warning
+    disableExperimentalSEAWarning: !options.warning,
+    useSnapshot: options.useSnapshot,
+    useCodeCache: options.useCodeCache
   };
+
   fs.writeFileSync(file, JSON.stringify(config, null, 2), 'utf-8');
+
   return {
     file,
     config
