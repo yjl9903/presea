@@ -74,7 +74,7 @@ jobs:
 
 ### unbuild
 
-> **warning**
+> **Warning**
 >
 > Currently, SEA only supports for a single script, and can not require other node_modules.
 >
