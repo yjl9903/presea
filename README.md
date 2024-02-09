@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/npm/v/presea?label=presea)](https://www.npmjs.com/package/presea) [![CI](https://github.com/yjl9903/presea/actions/workflows/ci.yaml/badge.svg)](https://github.com/yjl9903/presea/actions/workflows/ci.yaml)
 
-An [unbuild](https://github.com/unjs/unbuild) preset for bundling Node single executable applications.
+An utility function for bundling Node.js single executable applications.
 
 From [Node.js 20](https://nodejs.org/en/blog/announcements/v20-release-announce), it supports Single Executable Applications experimentally. This package integrates the binary bundle steps with [unbuild](https://github.com/unjs/unbuild) following [Single executable applications | Node.js v20.0.0 Document](https://nodejs.org/api/single-executable-applications.html).
 
@@ -13,42 +13,6 @@ npm i -D presea
 ```
 
 ## Usage
-
-You should provide field `bin` in your `package.json` like the following config.
-
-```JSON
-{
-  "bin": {
-    "hello": "./dist/hello.mjs"
-  }
-}
-```
-
-Import presea preset in your `build.config.ts`.
-
-```ts
-// build.config.ts
-
-import { defineBuildConfig } from 'unbuild';
-
-import { Sea } from 'presea/unbuild';
-
-export default defineBuildConfig({
-  preset: Sea(),
-  // Your config...
-});
-```
-
-Then, just run `unbuild` and the bundled single executable application is in your output directory.
-
-```bash
-$ npx unbuild
-
-$ ./dist/hello world
-Hello, world!
-```
-
-### Programmatic Usage
 
 ```ts
 import { bundle } from 'presea'
@@ -106,6 +70,50 @@ jobs:
         run: pnpm build  # now binary is located at matrix.binary
 
       # Upload to release and so on...
+```
+
+### unbuild
+
+> **warning**
+>
+> Currently, SEA only supports for a single script, and can not require other node_modules.
+>
+> But unbuild can not bundle the whole project into a single script.
+>
+> See [feat: unbuild bundle into a single script](https://github.com/yjl9903/presea/issues/9).
+
+You should provide field `bin` in your `package.json` like the following config.
+
+```JSON
+{
+  "bin": {
+    "hello": "./dist/hello.mjs"
+  }
+}
+```
+
+Import presea preset in your `build.config.ts`.
+
+```ts
+// build.config.ts
+
+import { defineBuildConfig } from 'unbuild';
+
+import { Sea } from 'presea/unbuild';
+
+export default defineBuildConfig({
+  preset: Sea(),
+  // Your config...
+});
+```
+
+Then, just run `unbuild` and the bundled single executable application is in your output directory.
+
+```bash
+$ npx unbuild
+
+$ ./dist/hello world
+Hello, world!
 ```
 
 ## Development
