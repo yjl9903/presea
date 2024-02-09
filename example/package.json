@@ -10,8 +10,5 @@
   "devDependencies": {
     "@breadc/color": "^0.9.6",
     "unbuild": "^2.0.0"
-  },
-  "volta": {
-    "node": "20.7.0"
   }
 }

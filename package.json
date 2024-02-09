@@ -64,11 +64,8 @@
   "optionalDependencies": {
     "unbuild": "^2.0.0"
   },
-  "packageManager": "pnpm@8.7.6",
+  "packageManager": "pnpm@8.15.1",
   "engines": {
-    "node": ">=v20.7.0"
-  },
-  "volta": {
-    "node": "20.7.0"
+    "node": ">=v20.10.0"
   }
 }
