@@ -20,6 +20,18 @@ import { bundle } from 'presea'
 await bundle('path/to/package')
 ```
 
+### CLI
+
+This is working in progress.
+
+```bash
+npm i -g presea
+
+echo "console.log('Hello')" > cli.js
+
+presea cli.js
+```
+
 ### GitHub Actions
 
 Here is an example GitHub Actions config to bundle single executable applications.
