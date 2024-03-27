@@ -33,13 +33,18 @@
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "bin": {
+    "presea": "./cli.mjs"
+  },
   "files": [
-    "dist"
+    "dist",
+    "*.mjs"
   ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
     "format": "prettier --write src/**/*.ts test/**/*.ts",
+    "presea": "tsx src/cli.ts",
     "release": "bumpp package.json --commit --push --tag && pnpm publish",
     "test": "vitest",
     "test:ci": "vitest --run",
@@ -49,6 +54,7 @@
   },
   "dependencies": {
     "@breadc/color": "^0.9.7",
+    "breadc": "^0.9.7",
     "c12": "^1.10.0",
     "execa": "^8.0.1",
     "postject": "1.0.0-alpha.6"
@@ -56,6 +62,7 @@
   "devDependencies": {
     "@types/node": "^20.11.30",
     "bumpp": "latest",
+    "tsx": "^4.7.1",
     "turbo": "^1.13.0",
     "typescript": "^5.4.3",
     "unbuild": "^2.0.0",
