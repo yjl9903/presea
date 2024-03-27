@@ -52,6 +52,13 @@ export interface SeaOptions {
   useCodeCache: boolean;
 
   /**
+   * @see https://nodejs.org/en/blog/release/v20.12.0#sea-support-embedding-assets
+   *
+   * @default {}
+   */
+  assets: Record<string, string>;
+
+  /**
    * Postject configuration.
    */
   postject: {

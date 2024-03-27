@@ -90,7 +90,8 @@ function makeSeaConfig(options: SeaOptions) {
     output: path.join(options.outDir, 'sea-prep.blob'),
     disableExperimentalSEAWarning: !options.warning,
     useSnapshot: options.useSnapshot,
-    useCodeCache: options.useCodeCache
+    useCodeCache: options.useCodeCache,
+    assets: options.assets
   };
 
   fs.writeFileSync(file, JSON.stringify(config, null, 2), 'utf-8');
