@@ -74,6 +74,7 @@ async function resolveOptions(
     warning: options.warning === true ? true : false,
     useSnapshot: options.useSnapshot === true ? true : false,
     useCodeCache: options.useCodeCache === true ? true : false,
+    assets: { ...options.assets },
     postject: {
       machoSegmentName:
         options.postject?.machoSegmentName ?? platform() === 'darwin' ? 'NODE_SEA' : undefined,

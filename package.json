@@ -54,10 +54,12 @@
   },
   "dependencies": {
     "@breadc/color": "^0.9.7",
+    "@vercel/ncc": "^0.38.1",
     "breadc": "^0.9.7",
     "c12": "^1.10.0",
     "execa": "^8.0.1",
-    "postject": "1.0.0-alpha.6"
+    "postject": "1.0.0-alpha.6",
+    "rimraf": "^5.0.5"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
