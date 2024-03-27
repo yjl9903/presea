@@ -3,6 +3,7 @@ import { platform } from 'node:os';
 
 import { execa } from 'execa';
 import { lightRed } from '@breadc/color';
+import { loadConfig } from 'c12';
 
 import type { SeaOptions } from './types';
 
@@ -10,7 +11,10 @@ import { inferBinary, bundle as rawBundle } from './bundle';
 
 export type { SeaOptions };
 
-export async function bundle(rootDir: string, options: Partial<Omit<SeaOptions, 'postject'>> = {}) {
+export async function bundle(
+  rootDir: string,
+  options: Partial<Omit<SeaOptions, 'postject'> & { loadConfig: boolean }> = {}
+) {
   const inferred = inferBinary(rootDir);
   const node = options.node ?? process.argv[0];
 
@@ -23,21 +27,39 @@ export async function bundle(rootDir: string, options: Partial<Omit<SeaOptions, 
     return undefined;
   }
 
-  const main = options.main ?? inferred?.main;
+  const loaded = options.loadConfig
+    ? await loadConfig<Omit<SeaOptions, 'postject'>>({
+        cwd: rootDir,
+        name: 'presea',
+        packageJson: true,
+        rcFile: false,
+        globalRc: false,
+        envName: false
+      })
+    : undefined;
+
+  const main = options.main ?? loaded?.config?.main ?? inferred?.main;
   if (main === undefined) {
     throw new Error('You should provide a script');
   }
 
+  const outDir = options.outDir
+    ? path.resolve(rootDir, options.outDir)
+    : loaded?.config?.outDir
+    ? path.resolve(loaded?.config?.outDir)
+    : path.join(rootDir, './dist');
+
   const config: SeaOptions = {
-    binary: options.binary ?? inferred?.name ?? 'cli',
+    binary: options.binary ?? loaded?.config?.binary ?? inferred?.name ?? 'cli',
     main,
     node,
-    sign: options.sign ?? false,
-    outDir: options.outDir ?? path.join(rootDir, './dist'),
-    warning: options.warning === true ? true : false,
-    useSnapshot: options.useSnapshot === true ? true : false,
-    useCodeCache: options.useCodeCache === true ? true : false,
+    outDir,
+    sign: options.sign ?? loaded?.config?.sign ?? false,
+    warning: (options.warning ?? loaded?.config?.warning) === true ? true : false,
+    useSnapshot: (options.useSnapshot ?? loaded?.config?.useSnapshot) === true ? true : false,
+    useCodeCache: (options.useCodeCache ?? loaded?.config?.useCodeCache) === true ? true : false,
     assets: {
+      ...loaded?.config?.assets,
       ...options.assets
     },
     postject: {

@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@breadc/color": "^0.9.7",
+    "c12": "^1.10.0",
     "execa": "^8.0.1",
     "postject": "1.0.0-alpha.6"
   },
